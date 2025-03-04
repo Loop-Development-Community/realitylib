@@ -1,0 +1,8 @@
+name: realitylib
+version: '1.0-SNAPSHOT'
+main: me.siwakornsep.realitylib.Realitylib
+api-version: '1.21'
+prefix: rlib
+load: STARTUP
+authors: [ Loop Development Community ]
+description: a libary that connect all reality hub to one tools
