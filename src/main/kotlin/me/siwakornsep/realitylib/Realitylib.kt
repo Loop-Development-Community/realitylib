@@ -2,13 +2,19 @@ package me.siwakornsep.realitylib
 
 import org.bukkit.plugin.java.JavaPlugin
 
+
 class Realitylib : JavaPlugin() {
 
+    private lateinit var databaseManager: Databases
+
     override fun onEnable() {
-        // Plugin startup logic
+        databaseManager = Databases("localhost:3306", "realityschema", "root", "4563")
+        logger.info("RealityLIB Started Correctly")
     }
 
     override fun onDisable() {
-        // Plugin shutdown logic
+        databaseManager.closeConnection()
+        logger.info("RealityLIB Closing Correctly")
     }
 }
+
