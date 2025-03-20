@@ -23,12 +23,12 @@ fun generateRandomStringHash(inputString: String, algorithm: String = "SHA-256")
     return hashBytes.joinToString("") { "%02x".format(it) }
 }
 
-class Pulldata {
-    fun createdPlayerDataOnDatabase(player: Player) {
-        var UUIDS = player.uniqueId
-        var gameName = player.name
+class PullData () {
+    fun createdPlayerDataOnDatabase(player: Player, playerDatabases: PlayerDatabases) {
+        val uuids = player.uniqueId
+        val gameName = player.name
         val packetToken = generateRandomHash() // cookie
         var databasePacketToken = generateRandomStringHash(packetToken)
-
+        playerDatabases.createPlayerMainData(uuids, gameName, packetToken)
     }
 }
